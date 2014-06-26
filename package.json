@@ -1,7 +1,7 @@
 {
   "name": "tuzi",
   "version": "0.0.0",
-  "description": "",
+  "description": "tuzi Framework",
   "main": "server.js",
   "scripts": {
     "test": "mocha"
