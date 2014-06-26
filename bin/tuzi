@@ -1,6 +1,6 @@
 #!/bin/sh 
 APP_PATH=$(pwd)
-TUZI_PATH=$(dirname $(dirname $0))
+TUZI_PATH=$(dirname $(dirname $(readlink -f $0)))
 
 # Copy files
 FILES=".gitignore Gruntfile.js server.js"
@@ -27,7 +27,7 @@ ls bower.json > /dev/null 2>&1
 ret=$?
 if [[ $ret -ne 0 ]]; then
   bower init
-  bower install --save jquery
+  bower install --save jquery#1
 fi
 
 # Check package.json
