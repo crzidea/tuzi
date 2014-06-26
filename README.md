@@ -1,7 +1,7 @@
 tuzi
 ====
 
-A fast and light non-MVC framework for node.js.
+A fast and lightweight non-MVC framework.
 
 ## Q & A
 
