@@ -1,0 +1,57 @@
+#!/bin/sh 
+APP_PATH=$(pwd)
+TUZI_PATH=$(dirname $(dirname $0))
+
+# Copy files
+FILES=".gitignore Gruntfile.js server.js"
+for FILE in $FILES; do
+  cp -rf $TUZI_PATH/$FILE $APP_PATH
+done
+
+# Check grunt
+grunt --version > /dev/null 2>&1
+ret=$?
+if [[ $ret -ne 0 ]]; then
+  npm install -g grunt-cli
+fi
+
+# Check bower
+bower --version > /dev/null 2>&1
+ret=$?
+if [[ $ret -ne 0 ]]; then
+  npm install -g bower
+fi
+
+# Check package.json
+ls bower.json > /dev/null 2>&1
+ret=$?
+if [[ $ret -ne 0 ]]; then
+  bower init
+  bower install --save jquery
+fi
+
+# Check package.json
+ls package.json > /dev/null 2>&1
+ret=$?
+if [[ $ret -ne 0 ]]; then
+  npm init
+fi
+
+DEPENDENCIES="
+  express
+  grunt 
+  grunt-contrib-watch 
+  grunt-contrib-uglify 
+  grunt-contrib-cssmin 
+  grunt-contrib-htmlmin
+  grunt-bump
+"
+npm install --save-dev $DEPENDENCIES
+
+# Make dirs
+mkdir -p public/js
+mkdir -p public/css
+mkdir -p public/img
+mkdir -p dist/js
+mkdir -p dist/css
+ln -s ../public/img dist/img
