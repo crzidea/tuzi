@@ -3,6 +3,21 @@ tuzi
 
 A fast and lightweight non-MVC framework.
 
+## Install
+
+Install this globally and you'll have access to the `tuzi` command anywhere on your system.
+
+```sh
+$ npm install -g tuzi
+```
+
+## Initialize Application
+
+```sh
+$ cd your-app
+$ tuzi
+```
+
 ## Q & A
 
  * Why is it so FAST and light than any other frameworks?
