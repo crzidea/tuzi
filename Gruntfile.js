@@ -15,16 +15,18 @@ module.exports = function (grunt) {
       asserts: {
         files: [{
           expand: true,
-          src: 'public/js/*',
-          dest: 'dist/js'
+          cwd: 'public',
+          src: 'js/*',
+          dest: 'dist'
         }]
       }
     },
     cssmin: {
       asserts: {
         expand: true,
-        src: 'public/css/*',
-        dest: 'dist/css'
+        cwd: 'public',
+        src: 'css/*',
+        dest: 'dist'
       }
     },
     ejs: {
