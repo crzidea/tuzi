@@ -3,7 +3,7 @@ APP_PATH=$(pwd)
 TUZI_PATH=$(dirname $(dirname $(readlink -f $0)))
 
 # Copy files
-FILES=".gitignore Gruntfile.js server.js"
+FILES=".gitignore Gruntfile.js server.js public"
 for FILE in $FILES; do
   cp -rf $TUZI_PATH/$FILE $APP_PATH
 done
@@ -38,6 +38,7 @@ if [[ $ret -ne 0 ]]; then
 fi
 
 DEPENDENCIES="
+  ejs
   express
   grunt 
   grunt-contrib-watch 
