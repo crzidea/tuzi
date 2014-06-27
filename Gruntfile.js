@@ -40,6 +40,18 @@ module.exports = function (grunt) {
         dest: 'dist'
       }
     },
+    htmlmin: {
+      pages: {
+        options: {                  // Target options
+          removeComments: true,
+          collapseWhitespace: true
+        },
+        expand: true,
+        cwd: 'dist',
+        src: ['*.html'],
+        dest: 'dist'
+      }
+    },
     bump: {
       options: {
         files: ['package.json'],
@@ -60,11 +72,11 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-htmlmin');
   grunt.loadNpmTasks('grunt-ejs');
   grunt.loadNpmTasks('grunt-bump');
 
   // Default task(s).
-  grunt.registerTask('default', ['watch']);
-  grunt.registerTask('min', ['uglify', 'cssmin']);
+  grunt.registerTask('default', ['uglify', 'cssmin', 'ejs', 'htmlmin']);
 
 };
