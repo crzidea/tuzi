@@ -1,7 +1,22 @@
 tuzi
 ====
 
-A fast and light non-MVC framework for node.js.
+A fast and lightweight non-MVC framework.
+
+## Install
+
+Install this globally and you'll have access to the `tuzi` command anywhere on your system.
+
+```sh
+$ npm install -g tuzi
+```
+
+## Initialize Application
+
+```sh
+$ cd your-app
+$ tuzi
+```
 
 ## Q & A
 
