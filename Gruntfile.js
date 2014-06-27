@@ -27,6 +27,17 @@ module.exports = function (grunt) {
         dest: 'dist/css'
       }
     },
+    ejs: {
+      pages: {
+        options: {
+          enviroment: 'production'
+        },
+        cwd: 'public',
+        src: ['*.html'],
+        expand: true,
+        dest: 'dist'
+      }
+    },
     bump: {
       options: {
         files: ['package.json'],
@@ -47,6 +58,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-ejs');
   grunt.loadNpmTasks('grunt-bump');
 
   // Default task(s).

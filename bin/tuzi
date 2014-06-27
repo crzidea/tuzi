@@ -45,6 +45,7 @@ DEPENDENCIES="
   grunt-contrib-uglify 
   grunt-contrib-cssmin 
   grunt-contrib-htmlmin
+  grunt-ejs
   grunt-bump
 "
 npm install --save-dev $DEPENDENCIES
