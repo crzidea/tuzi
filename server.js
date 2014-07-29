@@ -9,6 +9,7 @@ var app = module.exports = express();
 
 // Auto render templates
 var extension = 'html';
+var dotExtensions = '.' + extension;
 var dir = 'public';
 app.set('views', '.');
 app.engine(extension, ejs.__express);
@@ -18,10 +19,12 @@ app.use(function(req, res, next) {
 
   fs.lstat(pathname, function(err, stats) {
     // Requests that match /dir will be interpreted as /dir/index
-    if(!err && stats.isDirectory()) {
-       pathname = path.join(pathname, 'index');
+    if (!err && stats.isDirectory()) {
+      pathname = path.join(pathname, 'index');
     }
-    pathname += '.' + extension;
+    if (!~pathname.lastIndexOf(dotExtensions)) {
+      pathname += '.' + extension;
+    }
 
     fs.lstat(pathname, function(err, stats) {
       if(!err && stats.isFile()) {

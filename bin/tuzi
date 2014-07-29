@@ -3,10 +3,12 @@ APP_PATH=$(pwd)
 TUZI_PATH=$(dirname $(dirname $(readlink -f $0)))
 
 # Copy files
-FILES=".gitignore Gruntfile.js server.js public"
+FILES="server.js Gruntfile.js public"
 for FILE in $FILES; do
   cp -rf $TUZI_PATH/$FILE $APP_PATH
 done
+# No .file supportted
+cp -f $TUZI_PATH/gitignore $APP_PATH/.gitignore
 
 # Check grunt
 grunt --version > /dev/null 2>&1
@@ -34,7 +36,7 @@ fi
 ls package.json > /dev/null 2>&1
 ret=$?
 if [[ $ret -ne 0 ]]; then
-  npm init
+  npm init 
 fi
 
 DEPENDENCIES="
