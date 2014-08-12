@@ -29,7 +29,7 @@ app.use(function(req, res, next) {
 
     fs.lstat(pathname, function(err, stats) {
       if(!err && stats.isFile()) {
-        res.render(pathname, {enviroment: 'development'});
+        res.render(pathname, {environment: 'development'});
       } else {
         next();
       }

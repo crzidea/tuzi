@@ -35,7 +35,7 @@ module.exports = function (grunt) {
     ejs: {
       pages: {
         options: {
-          enviroment: 'production'
+          environment: 'production'
         },
         cwd: 'public',
         src: ['*.html'],
