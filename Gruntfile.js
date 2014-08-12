@@ -4,12 +4,7 @@ module.exports = function (grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     watch: {
-      scripts: {
-        files: ['**'],
-        options: {
-          livereload: true
-        },
-      },
+      scripts: {}
     },
     uglify: {
       options: {

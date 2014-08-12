@@ -29,7 +29,9 @@
     "grunt-ejs": "^0.2.0"
   },
   "dependencies": {
+    "body-parser": "^1.6.3",
     "ejs": "^1.0.0",
-    "express": "^4.8.2"
+    "express": "^4.8.2",
+    "tiny-lr": "^0.1.0"
   }
 }
