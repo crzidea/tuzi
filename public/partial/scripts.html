@@ -1,3 +1,3 @@
-<script type="text/javascript" charset="utf-8">
-  window.tuzi.env = '<%= environment %>';
-</script>
+  <% if (environment == 'development') { %>
+  <script type="text/javascript" src="livereload.js"></script>
+  <% } %>
