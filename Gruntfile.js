@@ -4,7 +4,13 @@ module.exports = function (grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     watch: {
-      scripts: {}
+      public: {
+        files: 'public/**',
+        options: {
+          livereload: true,
+          spawn: false
+        }
+      }
     },
     uglify: {
       options: {
@@ -40,7 +46,7 @@ module.exports = function (grunt) {
     },
     htmlmin: {
       pages: {
-        options: {                  // Target options
+        options: {
           removeComments: true,
           collapseWhitespace: true
         },
