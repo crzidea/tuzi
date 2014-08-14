@@ -5,7 +5,19 @@ var fs = require('fs');
 var path = require('path');
 var ejs = require('ejs');
 var bodyParser = require('body-parser');
-var livereload = require('tiny-lr');
+var program = require('commander');
+
+program
+  .option('-p, --port <n>', 'Server port', parseInt)
+  .option('-l, --livereload', 'Livereload port')
+  .parse(process.argv);
+
+process.env.PORT = program.port || process.env.PORT || 3000;
+if (program.livereload) {
+  process.env.LIVERELOAD = true === program.livereload
+                         ? (process.env.LIVERELOAD || 35729)
+                         : program.livereload;
+}
 
 var app = module.exports = express();
 
@@ -31,7 +43,12 @@ app.use(function(req, res, next) {
 
     fs.lstat(pathname, function(err, stats) {
       if(!err && stats.isFile()) {
-        res.render(pathname, {environment: 'development'});
+        var config = {environment: 'development'};
+        if (program.livereload) {
+          config.livereload = '//' + req.hostname + ':'
+            + process.env.LIVERELOAD + '/livereload.js';
+        }
+        res.render(pathname, config);
       } else {
         next();
       }
@@ -49,9 +66,6 @@ app.use(bodyParser.json())
 // parse application/vnd.api+json as json
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }))
 
-app.use(livereload.middleware({app: app}));
-
-process.env.PORT = process.env.PORT || 3000;
 if (!module.parent) {
   app.listen(process.env.PORT);
   console.log('listening on port', process.env.PORT);
