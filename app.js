@@ -43,9 +43,11 @@ app.use(function(req, res, next) {
     fs.lstat(pathname, function(err, stats) {
       if(!err && stats.isFile()) {
         var config = {environment: 'development'};
-        if (program.livereload) {
+        if (process.env.LIVERELOAD) {
           config.livereload = '//' + req.hostname + ':'
             + process.env.LIVERELOAD + '/livereload.js';
+        } else {
+          config.livereload = false;
         }
         res.render(pathname, config);
       } else {
