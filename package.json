@@ -1,6 +1,6 @@
 {
   "name": "tuzi",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "tuzi Framework",
   "main": "app.js",
   "scripts": {
