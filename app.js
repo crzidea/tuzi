@@ -4,7 +4,6 @@ var url = require('url');
 var fs = require('fs');
 var path = require('path');
 var ejs = require('ejs');
-var bodyParser = require('body-parser');
 var program = require('commander');
 
 program
@@ -58,13 +57,6 @@ app.use(function(req, res, next) {
 
 app.use(express.static(dir));
 app.use('/lib', express.static('bower_components'));
-
-// parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }))
-// parse application/json
-app.use(bodyParser.json())
-// parse application/vnd.api+json as json
-app.use(bodyParser.json({ type: 'application/vnd.api+json' }))
 
 if (!module.parent) {
   app.listen(process.env.PORT);
