@@ -23,7 +23,7 @@ $ tuzi
 1. Run `grunt watch &`
 2. Start your app with `-w` or `--watch` parameter. Example:
 ```sh
-./server.js -w
+$ ./server.js -w
 ```
 
 ### Tips
