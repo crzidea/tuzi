@@ -8,23 +8,29 @@ A fast and lightweight non-MVC framework.
 Install this globally and you'll have access to the `tuzi` command anywhere on your system.
 
 ```sh
-$ npm install -g tuzi
+npm install -g tuzi
 ```
 
 ## Initialize Application
 
 ```sh
-$ cd your-app
-$ tuzi
+cd your-app
+tuzi
 ```
 
 ## Enable Livereload
 
-1. Run `grunt watch &`
+1. Start watching task:
+
+   ```sh
+   grunt watch &
+   ```
+
 2. Start your app with `-w` or `--watch` parameter. Example:
-```sh
-$ ./server.js -w
-```
+
+   ```sh
+   ./server.js -w
+   ```
 
 ### Tips
 
@@ -34,6 +40,22 @@ $ ./server.js -w
 4. `livereload.js` will be removed after running `grunt ejs` because of [this](./Gruntfile.js#L39).
    Be free to use this feature.
 
+
+## Build your site
+
+1. Generate your pages and minimize static resources.
+
+   ```sh
+   grunt
+   ```
+
+2. Add `/lib/` to your HTTP server configuration. Nginx Example:
+
+   ```nginx
+   location /lib/ {
+       alias /path/to/your-app/bower_components/;
+   }
+   ```
 
 ## Q & A
 
