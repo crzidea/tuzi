@@ -49,9 +49,10 @@ tuzi
    grunt
    ```
 
-2. Add `/lib/` to your HTTP server configuration. Nginx Example:
+2. Add `root` and `/lib/` to your HTTP server configuration. Nginx Example:
 
    ```nginx
+   root /path/to/your-app/dist/;
    location /lib/ {
        alias /path/to/your-app/bower_components/;
    }
