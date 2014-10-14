@@ -3,6 +3,8 @@ tuzi
 
 A fast and lightweight non-MVC framework.
 
+[![NPM](https://nodei.co/npm/tuzi.png?downloads=true)](https://nodei.co/npm/tuzi/)
+
 ## Install
 
 Install this globally and you'll have access to the `tuzi` command anywhere on your system.
