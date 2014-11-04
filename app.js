@@ -8,7 +8,7 @@ var program = require('commander');
 
 program
   .option('-p, --port <n>', 'Server port', parseInt)
-  .option('-l, --livereload', 'Livereload port')
+  .option('-l, --livereload [n]', 'Livereload port')
   .parse(process.argv);
 
 process.env.PORT = program.port || process.env.PORT || 3000;

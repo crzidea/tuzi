@@ -1,4 +1,4 @@
-#!/bin/sh 
+#!/bin/sh
 APP_PATH=$(pwd)
 TUZI_PATH=$(dirname $(dirname $(readlink -f $0)))
 
@@ -11,21 +11,21 @@ done
 cp -f $TUZI_PATH/gitignore $APP_PATH/.gitignore
 
 # Check grunt
-grunt --version > /dev/null 2>&1
+grunt --version >/dev/null 2>&1
 ret=$?
 if [[ $ret -ne 0 ]]; then
   npm install -g grunt-cli
 fi
 
 # Check bower
-bower --version > /dev/null 2>&1
+bower --version >/dev/null 2>&1
 ret=$?
 if [[ $ret -ne 0 ]]; then
   npm install -g bower
 fi
 
 # Check package.json
-ls bower.json > /dev/null 2>&1
+ls bower.json >/dev/null 2>&1
 ret=$?
 if [[ $ret -ne 0 ]]; then
   bower init
@@ -33,18 +33,18 @@ if [[ $ret -ne 0 ]]; then
 fi
 
 # Check package.json
-ls package.json > /dev/null 2>&1
+ls package.json >/dev/null 2>&1
 ret=$?
 if [[ $ret -ne 0 ]]; then
-  npm init 
+  npm init
 fi
 
 DEPENDENCIES="
   tuzi
-  grunt 
-  grunt-contrib-watch 
-  grunt-contrib-uglify 
-  grunt-contrib-cssmin 
+  grunt
+  grunt-contrib-watch
+  grunt-contrib-uglify
+  grunt-contrib-cssmin
   grunt-contrib-htmlmin
   grunt-ejs
   grunt-bump

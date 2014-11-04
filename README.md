@@ -28,17 +28,17 @@ tuzi
    grunt watch &
    ```
 
-2. Start your app with `-w` or `--watch` parameter. Example:
+2. Start your app with `-l` or `--livereload` parameter. Example:
 
    ```sh
-   ./server.js -w
+   ./server.js -l
    ```
 
 ### Tips
 
 1. You can also change port of livereload [here](./Gruntfile.js#L10).
 2. See also [`grunt-contrib-watch`](https://github.com/gruntjs/grunt-contrib-watch#optionslivereload).
-3. Remember **NOT** to delete [this](./public/partial/scripts.html#L3) in your app.
+3. Remember **NOT** to delete [this](./public/partial/bundle.html#L3) in your app.
 4. `livereload.js` will be removed after running `grunt ejs` because of [this](./Gruntfile.js#L39).
    Be free to use this feature.
 
